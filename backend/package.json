@@ -8,6 +8,7 @@
   "main": "generateToken.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node generateToken",
     "dev": "nodemon generateToken"
   },
   "dependencies": {
