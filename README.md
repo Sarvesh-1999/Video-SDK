@@ -66,6 +66,7 @@ curl -X POST https://api.videosdk.live/v2/rooms \
   -H "Content-Type: application/json"
 
   curl -X POST https://api.videosdk.live/v2/rooms -H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiIyYjVmYWIyZS05Yjg5LTQwNGMtOTQ2Yi1iZDFlYTNjZGQ5NmQiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIiwiYWxsb3dfbW9kIl0sImlhdCI6MTc3MDcyMDQ4MywiZXhwIjoxNzcwODA2ODgzfQ.1izyBc8JKiCmTHn6KGv0fWfasNLR4rJvCfgPVTeBSsU" -H "Content-Type: application/json"
+  
   curl -X POST https://api.videosdk.live/v2/rooms -H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.example" -H "Content-Type: application/json"
 
 # Create Room B

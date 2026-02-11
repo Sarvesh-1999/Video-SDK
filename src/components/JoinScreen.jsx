@@ -6,6 +6,23 @@ const JoinScreen = ({ onJoin }) => {
   const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
 
+  const getRoomID = async () => {
+    let res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/room`, {
+      method: "POST",
+      headers: {
+        Authorization: import.meta.env.VITE_VIDEOSDK_TOKEN,
+      },
+    });
+    console.log(res);
+    let data = await res.json();
+    console.log(data.roomId);
+    if (!roomAId) {
+      setRoomAId(data.roomId);
+    } else if (!roomBId) {
+      setRoomBId(data.roomId);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -98,14 +115,25 @@ const JoinScreen = ({ onJoin }) => {
           <div style={{ marginBottom: "20px" }}>
             <label
               style={{
-                display: "block",
+                display: "flex",
+                justifyContent: "space-between",
                 marginBottom: "8px",
                 fontWeight: "600",
                 color: "#2d3748",
                 fontSize: "14px",
               }}
             >
-              Room A ID
+              Room A ID{" "}
+              <span
+                onClick={getRoomID}
+                style={{
+                  color: "blue",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+              >
+                get ID
+              </span>
             </label>
             <input
               type="text"
@@ -139,14 +167,25 @@ const JoinScreen = ({ onJoin }) => {
           <div style={{ marginBottom: "25px" }}>
             <label
               style={{
-                display: "block",
+                display: "flex",
+                justifyContent: "space-between",
                 marginBottom: "8px",
                 fontWeight: "600",
                 color: "#2d3748",
                 fontSize: "14px",
               }}
             >
-              Room B ID
+              Room B ID{" "}
+              <span
+                style={{
+                  color: "blue",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                 onClick={getRoomID}
+              >
+                get ID
+              </span>
             </label>
             <input
               type="text"
